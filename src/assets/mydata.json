@@ -1,5 +1,7 @@
 {
-  "poolSize": 14333,
-  "wert2": 2,
-  "wert3": 3
+  "poolSize": 14.333,
+  "pHWert": null,
+  "wirkungsGradKubikmeter": 10,
+  "wirkungsGradGramm": 100,
+  "wirkungsGradPHWert": 0.1
 }

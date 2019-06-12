@@ -1,55 +1,91 @@
 <main>
-  <div class="container">
-  <div class="p-2"></div>
-  <div class="row">
-    <div class="col-12 text-center">
+    <div class="container">
+        <div class="p-2"></div>
+        <div class="row">
+            <div class="col-12 text-center">
       <span style="font-size: 4em;" class="text-nowrap">
          <i class=" fas fa-swimming-pool"></i> CALCULATOR
       </span>
-    </div>
-  </div>
-
-  <div class="p-2"></div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Poolsize&nbsp;<i class="fas fa-tint"></i></span>
+            </div>
         </div>
-        <input type="number"  class="form-control" placeholder="Pool" aria-label="Pool" aria-describedby="basic-addon1" name="poolSize" id="poolSize" [(ngModel)]="werte.poolSize">
-      </div>
-    </div>
+
+        <div class="p-2"></div>
+
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2">Mittel <span class="text-muted">(m³)</span></span>
+                    </div>
+                    <input type="number" (change)="berechnen()" class="form-control" placeholder="Wirkungs Grad"
+                           aria-label="Wirkungs Grad" aria-describedby="basic-addon2" name="wirkungsGrad"
+                           id="wirkungsGradKubikmeter" [(ngModel)]="werte.wirkungsGradKubikmeter">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon6">Mittel <span class="text-muted">(gr)</span></span>
+                    </div>
+                    <input type="number" (change)="berechnen()" class="form-control" placeholder="Wirkungs Grad"
+                           aria-label="Wirkungs Grad" aria-describedby="basic-addon2" name="wirkungsGrad"
+                           id="wirkungsGradGramm" [(ngModel)]="werte.wirkungsGradGramm">
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon7">m³/ gr = (-)pH </span>
+                    </div>
+                    <input type="number" (change)="berechnen()" class="form-control" placeholder="Wirkungs Grad"
+                           aria-label="Wirkungs Grad" aria-describedby="basic-addon2" name="wirkungsGrad"
+                           id="wirkungsGradKubikmeter" [(ngModel)]="werte.wirkungsGradPHWert">
+                </div>
+            </div>
 
 
-    <div class="col-md-4">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon2">ww</span>
         </div>
-        <input type="number" class="form-control" placeholder="Wert2" aria-label="Wert2" aria-describedby="basic-addon2" name="wert2" id="wert2"  [(ngModel)]="werte.wert2">
-      </div>
-    </div>
 
-    <div class="col-md-4">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon3">Wert3</span>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">Poolsize&nbsp;<i class="fas fa-tint"></i>&nbsp;<span
+                                class="text-muted">(m³)</span></span>
+                    </div>
+                    <input type="number" (change)="berechnen()" class="form-control" placeholder="Pool"
+                           aria-label="Pool" aria-describedby="basic-addon1" name="poolSize" id="poolSize"
+                           [(ngModel)]="werte.poolSize">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">pH-Wert&nbsp;<i
+                                class="fas fa-eye-dropper"></i></span>
+                    </div>
+                    <input type="number" (change)="berechnen()" class="form-control" placeholder="pH-Wert eintragen"
+                           aria-label="pH-Wert eintragen" aria-describedby="basic-addon3" name="pHWert" id="pHWert"
+                           [(ngModel)]="werte.pHWert">
+                </div>
+            </div>
         </div>
-        <input type="number" class="form-control" placeholder="Wert3" aria-label="Wert3" aria-describedby="basic-addon3" name="wert3" id="wert3"  [(ngModel)]="werte.wert3">
-      </div>
-    </div>
-  </div>
 
-    <div class="row">
-      <div class="col-12 text-center">
-        <div>
+        <div class="row" *ngIf="ergebnis">
+            <div class="col-12 text-center">
+                <div>
           <span style="font-size: 4em;">
-            <i class="fas fa-tablets"></i> {{this.werte.poolSize+this.werte.wert2+this.werte.wert3}}
+            <i class="fas fa-tablets"></i> {{ergebnis}}
         </span>
+                </div>
+            </div>
         </div>
-      </div>
+
     </div>
 
-  </div>
+
 </main>

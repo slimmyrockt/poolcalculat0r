@@ -1,5 +1,7 @@
 export class Werte {
   poolSize: number;
-  wert2: number;
-  wert3: number;
+  pHWert: number;
+  wirkungsGradKubikmeter: number;
+  wirkungsGradGramm: number;
+  wirkungsGradPHWert: number;
 }
