@@ -27,12 +27,12 @@ export class FormComponent implements OnInit {
     }
 
     berechnen() {
-
-        if (this.werte.pHWert <= 7.4) {
+        //TODO: plus / Minus erkennen und danach berechnen!
+        if (this.werte.pHWert <= 7.2) {
             this.ergebnis = 'Nichts hinzugeben!';
         }
 
-        if (this.werte.pHWert > 7.4) {
+        if (this.werte.pHWert > 7.2) {
 
             this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert) + ' Gramm';
 
