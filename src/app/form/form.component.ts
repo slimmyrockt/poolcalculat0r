@@ -11,6 +11,9 @@ export class FormComponent implements OnInit {
   werte: Werte;
   content = require('../../assets/mydata.json');
   ergebnis: string;
+  details: boolean;
+  wirkungsGradPH: number;
+  resultText: string;
 
   constructor() {
     this.werte = new Werte();
@@ -18,8 +21,10 @@ export class FormComponent implements OnInit {
     this.werte.pHWert = this.content.pHWert;
     this.werte.wirkungsGradGramm = this.content.wirkungsGradGramm;
     this.werte.wirkungsGradKubikmeter = this.content.wirkungsGradKubikmeter;
-    this.werte.wirkungsGradPHWert = this.content.wirkungsGradPHWert;
     this.ergebnis = null;
+    this.details = false;
+    this.wirkungsGradPH = null;
+    this.resultText = null;
   }
 
   ngOnInit() {
@@ -27,26 +32,31 @@ export class FormComponent implements OnInit {
   }
 
   berechnen() {
-    //TODO: plus / Minus erkennen und danach berechnen!
-    if (this.werte.pHWert < 7.2 && this.werte.pHWert > 0 && this.werte.wirkungsGradPHWert > 0) {
-      this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (7.2 - this.werte.pHWert) / this.werte.wirkungsGradPHWert) + ' Gramm';
+
+    if (this.werte.pHWert < 7.2) {
+      this.resultText = 'Nimm pH-Plus!';
+      this.wirkungsGradPH = 0.1;
+      this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (7.2 - this.werte.pHWert) / this.wirkungsGradPH) + ' Gramm';
     }
 
-    if (this.werte.pHWert < 7.2 && this.werte.pHWert > 0 && this.werte.wirkungsGradPHWert < 0) {
-      this.ergebnis = 'Du musst pH-Plus nehmen und den Wirkungsgrad vergleichen!';
-    }
-
-    if (this.werte.pHWert > 7.4 && this.werte.wirkungsGradPHWert < 0) {
-      this.ergebnis = Math.round(-1 * (this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert) + ' Gramm';
-    }
-
-    if (this.werte.pHWert > 7.4 && this.werte.wirkungsGradPHWert > 0) {
-      this.ergebnis = 'Du musst pH-Minus nehmen und den Wirkungsgrad vergleichen!';
+    if (this.werte.pHWert > 7.4) {
+      this.wirkungsGradPH = -0.1;
+      this.resultText = 'Nimm pH-Minus!';
+      this.ergebnis = Math.round(-1 * (this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.wirkungsGradPH) + ' Gramm';
     }
 
     if (this.werte.pHWert >= 7.2 && this.werte.pHWert < 7.4) {
+      this.wirkungsGradPH = null;
       this.ergebnis = 'pH-Wert ist super';
     }
 
+  }
+
+  toggleDetails(){
+    if(this.details === false){
+      this.details = true;
+    }else{
+      this.details = false;
+    }
   }
 }
