@@ -43,7 +43,7 @@
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
-              "baseHref": "/ml029/schmucke-pool/",
+              "baseHref": "/pool/",
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
