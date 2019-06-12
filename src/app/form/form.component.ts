@@ -34,14 +34,14 @@ export class FormComponent implements OnInit {
 
         if (this.werte.pHWert > 7.4) {
 
-            this.ergebnis = Math.round((this.werte.pHWert - 7.4) * (this.werte.poolSize*this.werte.wirkungsGradGramm/this.werte.wirkungsGradKubikmeter))+' Gramm';
+            this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert) + ' Gramm';
 
             console.log('Zuviel:' + (this.werte.pHWert - 7.4));
-            console.log('Gramm um den PH-Wert um 0.1 zu senken:' + (this.werte.poolSize*this.werte.wirkungsGradGramm/this.werte.wirkungsGradKubikmeter));
+            console.log('Gramm um den PH-Wert um 0.1 zu senken:' + (this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter));
             console.log(this.werte.wirkungsGradKubikmeter);
             console.log(this.werte.wirkungsGradGramm);
             console.log(this.werte.poolSize);
-            console.log((this.werte.pHWert - 7.4) * (this.werte.poolSize*this.werte.wirkungsGradGramm/this.werte.wirkungsGradKubikmeter));
+            console.log((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert);
         }
     }
 }

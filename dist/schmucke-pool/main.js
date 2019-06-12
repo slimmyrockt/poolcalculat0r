@@ -141,7 +141,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <div class=\"container\">\n  <div class=\"p-2\"></div>\n  <div class=\"row\">\n    <div class=\"col-12 text-center\">\n      <span style=\"font-size: 4em;\" class=\"text-nowrap\">\n         <i class=\" fas fa-swimming-pool\"></i> CALCULATOR\n      </span>\n    </div>\n  </div>\n\n  <div class=\"p-2\"></div>\n\n  <div class=\"row\">\n    <div class=\"col-md-4\">\n      <div class=\"input-group mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"basic-addon1\">Poolsize&nbsp;<i class=\"fas fa-tint\"></i></span>\n        </div>\n        <input type=\"number\"  class=\"form-control\" placeholder=\"Pool\" aria-label=\"Pool\" aria-describedby=\"basic-addon1\" name=\"poolSize\" id=\"poolSize\" [(ngModel)]=\"werte.poolSize\">\n      </div>\n    </div>\n\n\n    <div class=\"col-md-4\">\n      <div class=\"input-group mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"basic-addon2\">ww</span>\n        </div>\n        <input type=\"number\" class=\"form-control\" placeholder=\"Wert2\" aria-label=\"Wert2\" aria-describedby=\"basic-addon2\" name=\"wert2\" id=\"wert2\"  [(ngModel)]=\"werte.wert2\">\n      </div>\n    </div>\n\n    <div class=\"col-md-4\">\n      <div class=\"input-group mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"basic-addon3\">Wert3</span>\n        </div>\n        <input type=\"number\" class=\"form-control\" placeholder=\"Wert3\" aria-label=\"Wert3\" aria-describedby=\"basic-addon3\" name=\"wert3\" id=\"wert3\"  [(ngModel)]=\"werte.wert3\">\n      </div>\n    </div>\n  </div>\n\n    <div class=\"row\">\n      <div class=\"col-12 text-center\">\n        <div>\n          <span style=\"font-size: 4em;\">\n            <i class=\"fas fa-tablets\"></i> {{this.werte.poolSize+this.werte.wert2+this.werte.wert3}}\n        </span>\n        </div>\n      </div>\n    </div>\n\n  </div>\n</main>\n"
+module.exports = "<main>\n    <div class=\"container\">\n        <div class=\"p-2\"></div>\n        <div class=\"row\">\n            <div class=\"col-12 text-center\">\n      <span style=\"font-size: 4em;\" class=\"text-nowrap\">\n         <i class=\" fas fa-swimming-pool\"></i> CALCULATOR\n      </span>\n            </div>\n        </div>\n\n        <div class=\"p-2\"></div>\n\n        <div class=\"row\">\n\n            <div class=\"col-lg-4\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\" id=\"basic-addon2\">Mittel <span class=\"text-muted\">(m³)</span></span>\n                    </div>\n                    <input type=\"number\" (change)=\"berechnen()\" class=\"form-control\" placeholder=\"Wirkungs Grad\"\n                           aria-label=\"Wirkungs Grad\" aria-describedby=\"basic-addon2\" name=\"wirkungsGrad\"\n                           id=\"wirkungsGradKubikmeter\" [(ngModel)]=\"werte.wirkungsGradKubikmeter\">\n                </div>\n            </div>\n\n            <div class=\"col-lg-4\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\" id=\"basic-addon6\">Mittel <span class=\"text-muted\">(gr)</span></span>\n                    </div>\n                    <input type=\"number\" (change)=\"berechnen()\" class=\"form-control\" placeholder=\"Wirkungs Grad\"\n                           aria-label=\"Wirkungs Grad\" aria-describedby=\"basic-addon2\" name=\"wirkungsGrad\"\n                           id=\"wirkungsGradGramm\" [(ngModel)]=\"werte.wirkungsGradGramm\">\n                </div>\n            </div>\n\n            <div class=\"col-lg-4\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\" id=\"basic-addon7\">ΔpH </span>\n                    </div>\n                    <input type=\"number\" (change)=\"berechnen()\" class=\"form-control\" placeholder=\"Wirkungs Grad\"\n                           aria-label=\"Wirkungs Grad\" aria-describedby=\"basic-addon2\" name=\"wirkungsGrad\"\n                           id=\"wirkungsGradKubikmeter\" [(ngModel)]=\"werte.wirkungsGradPHWert\">\n                </div>\n            </div>\n\n\n        </div>\n\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\" id=\"basic-addon1\">Poolsize&nbsp;<i class=\"fas fa-tint\"></i>&nbsp;<span\n                                class=\"text-muted\">(m³)</span></span>\n                    </div>\n                    <input type=\"number\" (change)=\"berechnen()\" class=\"form-control\" placeholder=\"Pool\"\n                           aria-label=\"Pool\" aria-describedby=\"basic-addon1\" name=\"poolSize\" id=\"poolSize\"\n                           [(ngModel)]=\"werte.poolSize\">\n                </div>\n            </div>\n\n            <div class=\"col-lg-6\">\n                <div class=\"input-group mb-3\">\n                    <div class=\"input-group-prepend\">\n                        <span class=\"input-group-text\" id=\"basic-addon3\">pH-Wert&nbsp;<i\n                                class=\"fas fa-eye-dropper\"></i></span>\n                    </div>\n                    <input type=\"number\" (change)=\"berechnen()\" class=\"form-control\" placeholder=\"pH-Wert eintragen\"\n                           aria-label=\"pH-Wert eintragen\" aria-describedby=\"basic-addon3\" name=\"pHWert\" id=\"pHWert\"\n                           [(ngModel)]=\"werte.pHWert\">\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row\" *ngIf=\"ergebnis\">\n            <div class=\"col-12 text-center\">\n                <div>\n          <span style=\"font-size: 4em;\">\n            <i class=\"fas fa-tablets\"></i> {{ergebnis}}\n        </span>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n\n</main>\n"
 
 /***/ }),
 
@@ -166,11 +166,28 @@ var FormComponent = /** @class */ (function () {
         this.content = __webpack_require__(/*! ../../assets/mydata.json */ "./src/assets/mydata.json");
         this.werte = new _models_werte__WEBPACK_IMPORTED_MODULE_2__["Werte"]();
         this.werte.poolSize = this.content.poolSize;
-        this.werte.wert2 = this.content.wert2;
-        this.werte.wert3 = this.content.wert3;
+        this.werte.pHWert = this.content.pHWert;
+        this.werte.wirkungsGradGramm = this.content.wirkungsGradGramm;
+        this.werte.wirkungsGradKubikmeter = this.content.wirkungsGradKubikmeter;
+        this.werte.wirkungsGradPHWert = this.content.wirkungsGradPHWert;
+        this.ergebnis = null;
     }
     FormComponent.prototype.ngOnInit = function () {
         console.log(this.content);
+    };
+    FormComponent.prototype.berechnen = function () {
+        if (this.werte.pHWert <= 7.4) {
+            this.ergebnis = 'Nichts hinzugeben!';
+        }
+        if (this.werte.pHWert > 7.4) {
+            this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert) + ' Gramm';
+            console.log('Zuviel:' + (this.werte.pHWert - 7.4));
+            console.log('Gramm um den PH-Wert um 0.1 zu senken:' + (this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter));
+            console.log(this.werte.wirkungsGradKubikmeter);
+            console.log(this.werte.wirkungsGradGramm);
+            console.log(this.werte.poolSize);
+            console.log((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (this.werte.pHWert - 7.4) / this.werte.wirkungsGradPHWert);
+        }
     };
     FormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -211,10 +228,10 @@ var Werte = /** @class */ (function () {
 /*!********************************!*\
   !*** ./src/assets/mydata.json ***!
   \********************************/
-/*! exports provided: poolSize, wert2, wert3, default */
+/*! exports provided: poolSize, pHWert, wirkungsGradKubikmeter, wirkungsGradGramm, wirkungsGradPHWert, default */
 /***/ (function(module) {
 
-module.exports = {"poolSize":14333,"wert2":2,"wert3":3};
+module.exports = {"poolSize":14.333,"pHWert":null,"wirkungsGradKubikmeter":10,"wirkungsGradGramm":100,"wirkungsGradPHWert":0.1};
 
 /***/ }),
 
