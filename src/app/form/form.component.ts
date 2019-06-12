@@ -47,7 +47,8 @@ export class FormComponent implements OnInit {
 
     if (this.werte.pHWert >= 7.2 && this.werte.pHWert < 7.4) {
       this.wirkungsGradPH = null;
-      this.ergebnis = 'pH-Wert ist super';
+      this.resultText = null;
+      this.ergebnis = 'pH-Wert ist super!';
     }
 
   }
