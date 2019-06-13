@@ -34,7 +34,7 @@ export class FormComponent implements OnInit {
   berechnen() {
 
     if (this.werte.pHWert < 7.2) {
-      this.resultText = 'Nimm pH-Plus!';
+        this.resultText = 'Nimm pH-Plus!';
       this.wirkungsGradPH = 0.1;
       this.ergebnis = Math.round((this.werte.poolSize * this.werte.wirkungsGradGramm / this.werte.wirkungsGradKubikmeter) * (7.2 - this.werte.pHWert) / this.wirkungsGradPH) + ' Gramm';
     }
@@ -53,10 +53,10 @@ export class FormComponent implements OnInit {
 
   }
 
-  toggleDetails(){
-    if(this.details === false){
+    toggleDetails() {
+        if (this.details === false) {
       this.details = true;
-    }else{
+        } else {
       this.details = false;
     }
   }
