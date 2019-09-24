@@ -1,7 +1,7 @@
 # Poolcalculator
 
 Website
-https://www.schmuckermeier.de/pool/
+https://pool.slimmyrockt.de/
 
 
 
