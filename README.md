@@ -1,5 +1,12 @@
 # Poolcalculator
 
+Website
+https://www.schmuckermeier.de/pool/
+
+
+
+Discription
+
 Englisch
 
 With the Poolcalculator you can calculate how much chemistry you have to put into your pool to get a good value again.  Starting point are standard products which lower or increase the pH value by 0.1 on 10qm with 100 grams.
@@ -19,4 +26,3 @@ Con la calculadora de piscinas puede calcular cuánta química tiene que poner e
 
 С помощью Poolcalculator вы можете рассчитать, сколько химикатов вам нужно вложить в бассейн, чтобы снова получить хорошее соотношение цены и качества.  Отправной точкой являются стандартные продукты, которые снижают или увеличивают значение pH на 0,1 на 10км при 100 граммах.
 
-https://www.schmuckermeier.de/pool/
